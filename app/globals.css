@@ -428,3 +428,13 @@ html.hold
 .hl{margin:0;font-size:clamp(2.4rem,5.4vw,4.4rem);font-weight:700;letter-spacing:-.045em;line-height:.98;max-width:15ch}
 .hero .ht .k{color:var(--accent)}
 @media(prefers-reduced-motion:reduce){.ht,.ht.is-on,.ht.is-prev{transition:none}}
+.fb a,.fa a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.fa{font-style:normal;font-size:.88rem;color:#8F8D85;line-height:1.7;margin-top:10px;padding-bottom:28px}
+.legal{max-width:68ch}
+.legal h2{font-size:1.25rem;letter-spacing:-.01em;margin:40px 0 12px}
+.legal p,.legal li{color:var(--muted);line-height:1.7}
+.legal p+p{margin-top:12px}
+.legal ul{padding-left:20px;list-style:disc;margin-top:8px}
+.legal li+li{margin-top:6px}
+.legal a{color:inherit;text-decoration:underline;text-underline-offset:3px}
+.legal ul+p{margin-top:14px}
