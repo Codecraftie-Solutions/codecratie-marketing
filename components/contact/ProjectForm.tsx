@@ -43,7 +43,7 @@ export function ProjectForm() {
 
   if (status === "success")
     return (
-      <div id="done" role="status" tabIndex={-1} ref={(el) => el?.focus()} style={{ display: "block" }}>
+      <div id="done" className="notice" role="status" tabIndex={-1} ref={(el) => el?.focus()} style={{ display: "block" }}>
         <strong>Thanks.</strong> We&apos;ve received your project details. We&apos;ll review the requirement and get back to you.
       </div>
     );
@@ -51,7 +51,7 @@ export function ProjectForm() {
   const e = errors;
   return (
     <>
-      <form onSubmit={onSubmit} noValidate aria-label="Project inquiry">
+      <form className="form" onSubmit={onSubmit} noValidate aria-label="Project inquiry">
         <Field id="name" label="Name" error={e.name}><input id="name" name="name" required autoComplete="name" {...aria("name", e.name)} /></Field>
         <Field id="email" label="Email" error={e.email}><input id="email" name="email" type="email" required autoComplete="email" {...aria("email", e.email)} /></Field>
         <Field id="company" label="Company" error={e.company}><input id="company" name="company" autoComplete="organization" {...aria("company", e.company)} /></Field>
@@ -71,17 +71,17 @@ export function ProjectForm() {
           <select id="budget" name="budget" defaultValue={formDefaults.budget} {...aria("budget", e.budget)}>{budgets.map((o) => <option key={o}>{o}</option>)}</select>
         </Field>
         <Field id="more" label="Additional information" error={e.more} full><textarea id="more" name="more" {...aria("more", e.more)} /></Field>
-        <div aria-hidden="true" className="absolute -left-[9999px] h-0 w-0 opacity-0">
+        <div aria-hidden="true" className="hp">
           <label>Leave this field empty<input name="website" tabIndex={-1} autoComplete="off" /></label>
         </div>
         <div className="f w">
-          <button className="btn p" type="submit" disabled={status === "loading"} aria-busy={status === "loading"}>
-            {status === "loading" ? "Sending…" : "Submit Project Inquiry"}
+          <button className="btn btn-primary" type="submit" disabled={status === "loading"} aria-busy={status === "loading"}>
+            {status === "loading" ? "Sending…" : "Send project details"}
           </button>
         </div>
       </form>
       {status === "error" && (
-        <div id="done" className="fail" role="alert" tabIndex={-1} ref={(el) => el?.focus()} style={{ display: "block" }}>
+        <div id="done" className="notice notice-fail" role="alert" tabIndex={-1} ref={(el) => el?.focus()} style={{ display: "block" }}>
           <strong>Your inquiry wasn&apos;t sent.</strong> {message}
         </div>
       )}

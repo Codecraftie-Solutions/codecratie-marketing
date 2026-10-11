@@ -1,3 +1,4 @@
+import { smtpProvider } from "./smtp";
 export type EmailMessage = { to: string; replyTo: string; subject: string; text: string };
 export interface EmailProvider { send(message: EmailMessage): Promise<void> }
 
@@ -14,6 +15,8 @@ const logProvider: EmailProvider = {
  */
 export function getProvider(): EmailProvider | null {
   switch (process.env.EMAIL_PROVIDER) {
+    case "smtp":
+      return smtpProvider();
     case "log":
       return process.env.NODE_ENV === "production" ? null : logProvider;
     default:

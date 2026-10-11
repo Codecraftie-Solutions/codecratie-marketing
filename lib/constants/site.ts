@@ -1,13 +1,13 @@
 export const site = {
-  name: "CodeCraftie Solutions",
+  name: "Code-Craftie Solutions",
   /** Exactly as registered with the Corporate Affairs Commission. */
   legalName: "Code-Craftie Solutions",
   registration: "BN 8701900",
   address: { street: "No 35 Onilewura Street", locality: "Ikotun", region: "Lagos", country: "Nigeria" },
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
-  tagline: "Build technology. Develop talent. Create opportunity.",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://codecraftie.com",
+  tagline: "We build the software your business runs on.",
   description:
-    "CodeCraftie Solutions builds web and mobile applications, SaaS products, backend systems and intelligent automation for businesses.",
+    "Code-Craftie Solutions is a software studio in Lagos. We design, build and look after web apps, mobile apps and business systems for businesses, and run products of our own.",
   academyUrl: "https://codecratie-academy.vercel.app/",
   /** null until supplied via env. UI hides anything that depends on it. */
   careerLaunchUrl: process.env.NEXT_PUBLIC_CAREER_LAUNCH_URL || null,

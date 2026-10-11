@@ -10,9 +10,9 @@ export const metadata = pageMetadata({
 export default function Page() {
   const a = site.address;
   return (
-    <section>
+    <section className="page-head">
       <div className="wrap legal">
-        <h1 className="as-h2">Privacy Policy</h1>
+        <h1>Privacy Policy</h1>
         <p className="lede">Last updated 11 October 2026</p>
 
         <p style={{ marginTop: 28 }}>
