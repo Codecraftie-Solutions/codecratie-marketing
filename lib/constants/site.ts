@@ -8,7 +8,7 @@ export const site = {
   tagline: "We build the software your business runs on.",
   description:
     "Code-Craftie Solutions is a software studio in Lagos. We design, build and look after web apps, mobile apps and business systems for businesses, and run products of our own.",
-  academyUrl: "https://codecratie-academy.vercel.app/",
+  academyUrl: "https://academy.codecraftie.com/",
   /** null until supplied via env. UI hides anything that depends on it. */
   careerLaunchUrl: process.env.NEXT_PUBLIC_CAREER_LAUNCH_URL || null,
   contactEmail: process.env.NEXT_PUBLIC_CONTACT_EMAIL || "support@codecraftie.com",
