@@ -9,6 +9,14 @@ import { ThemeToggle } from "@/components/layout/ThemeToggle";
 
 export function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
   const path = usePathname();
 
   // Close the menu after navigating, and with Escape.
@@ -25,7 +33,7 @@ export function Header() {
   }, [open]);
 
   return (
-    <header className="site-header">
+    <header className={scrolled ? "site-header scrolled" : "site-header"}>
       <div className="wrap bar">
         <Link href="/" aria-label="Code-Craftie Solutions, home">
           <Logo />

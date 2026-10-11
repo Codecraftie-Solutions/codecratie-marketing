@@ -1020,3 +1020,186 @@ html.menu-open {
     gap: 44px;
   }
 }
+
+/* ── Motion ───────────────────────────────────────────────────────────────
+   Everything here depends on html.motion, which is only set when the visitor
+   has not asked for reduced motion. Load animations end visible on their own;
+   scroll reveals only hide things after the reveal script is running. */
+.site-header {
+  transition: box-shadow 0.25s, background-color 0.25s;
+}
+.site-header.scrolled {
+  box-shadow: 0 8px 24px -18px rgba(16, 19, 42, 0.45);
+}
+.mark-dash {
+  transform-box: fill-box;
+  transition: transform 0.35s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+.logo:hover .mark-dash {
+  transform: translateX(4px);
+}
+.btn {
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.btn:hover {
+  transform: translateY(-1px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.98);
+}
+.case-card .shot img {
+  transition: transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.case-card:hover .shot img {
+  transform: scale(1.035);
+}
+
+html.motion .site-header .mark-dash {
+  animation: joint 0.9s 0.25s cubic-bezier(0.3, 1.5, 0.45, 1) both;
+}
+@keyframes joint {
+  from {
+    transform: translateX(18px);
+    opacity: 0;
+  }
+}
+
+/* Hero: the headline rises word by word out of a mask, then the rest settles. */
+.hero h1 .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: top;
+  padding-bottom: 0.1em;
+  margin-bottom: -0.1em;
+}
+.hero h1 .w > span {
+  display: inline-block;
+}
+html.motion .hero h1 .w > span {
+  animation: rise 0.95s cubic-bezier(0.2, 0.85, 0.1, 1) both;
+  animation-delay: calc(var(--i) * 60ms + 120ms);
+}
+@keyframes rise {
+  from {
+    transform: translateY(108%);
+  }
+}
+html.motion .hero-sub,
+html.motion .hero .actions {
+  animation: fade-up 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+html.motion .hero-sub {
+  animation-delay: 0.6s;
+}
+html.motion .hero .actions {
+  animation-delay: 0.72s;
+}
+html.motion .hero-shot {
+  animation: phone-in 1.2s 0.35s cubic-bezier(0.16, 0.9, 0.2, 1) both;
+}
+html.motion .hero-shot figcaption {
+  animation: fade-up 0.8s 1.1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+@keyframes phone-in {
+  from {
+    opacity: 0;
+    transform: translateY(56px) rotate(-5deg) scale(0.96);
+  }
+}
+
+/* Scroll reveals: pictures wipe up into place. */
+html.reveal-ready [data-reveal="wipe"] {
+  transition: clip-path 1.1s cubic-bezier(0.2, 0.8, 0.1, 1), transform 1.1s cubic-bezier(0.2, 0.8, 0.1, 1);
+}
+html.reveal-ready [data-reveal="wipe"]:not(.in) {
+  clip-path: inset(100% 0 0 0 round var(--radius));
+  transform: translateY(32px);
+}
+html.reveal-ready [data-reveal="wipe"].in {
+  clip-path: inset(0 0 0 0 round var(--radius));
+}
+/* CatalogFlow's three videos fan in one after another. */
+html.reveal-ready .case-visual .reel {
+  transition: transform 0.9s cubic-bezier(0.2, 0.9, 0.2, 1), opacity 0.9s;
+}
+html.reveal-ready .case-visual:not(.in) .reel {
+  transform: translateY(60px) rotate(4deg);
+  opacity: 0;
+}
+html.reveal-ready .case-visual .reel:nth-child(1) {
+  transition-delay: 0.25s;
+}
+html.reveal-ready .case-visual .reel:nth-child(2) {
+  transition-delay: 0.38s;
+}
+html.reveal-ready .case-visual .reel:nth-child(3) {
+  transition-delay: 0.51s;
+}
+.case-cards li:nth-child(2) [data-reveal] {
+  transition-delay: 0.12s;
+}
+.case-cards li:nth-child(3) [data-reveal] {
+  transition-delay: 0.24s;
+}
+
+/* Process: a line runs through the four steps and each number lights up as it passes. */
+.steps {
+  position: relative;
+}
+@media (min-width: 901px) {
+  html.reveal-ready .steps::before {
+    content: "";
+    position: absolute;
+    top: 17px;
+    left: 18px;
+    right: calc(25% - 46px);
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.4s cubic-bezier(0.6, 0, 0.2, 1);
+    z-index: 0;
+  }
+  html.reveal-ready .steps.in::before {
+    transform: scaleX(1);
+  }
+  html.reveal-ready .steps .step-n {
+    position: relative;
+    z-index: 1;
+    transition: background-color 0.4s, color 0.4s, transform 0.4s cubic-bezier(0.3, 1.6, 0.5, 1);
+  }
+  html.reveal-ready .steps:not(.in) .step-n {
+    background: var(--line);
+    color: var(--muted);
+    transform: scale(0.85);
+  }
+  html.reveal-ready .steps li:nth-child(2) .step-n {
+    transition-delay: 0.45s;
+  }
+  html.reveal-ready .steps li:nth-child(3) .step-n {
+    transition-delay: 0.9s;
+  }
+  html.reveal-ready .steps li:nth-child(4) .step-n {
+    transition-delay: 1.35s;
+  }
+}
+
+html.reveal-ready [data-reveal="pop"] {
+  transition: transform 0.8s cubic-bezier(0.3, 1.5, 0.5, 1);
+}
+html.reveal-ready [data-reveal="pop"]:not(.in) {
+  transform: scale(0.6);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html.motion *,
+  html.reveal-ready * {
+    animation: none !important;
+  }
+}

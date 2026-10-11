@@ -1,3 +1,4 @@
+import { Fragment, type CSSProperties } from "react";
 import Link from "next/link";
 import { hero } from "@/lib/data/content";
 
@@ -10,7 +11,15 @@ export function Hero() {
     <section className="hero">
       <div className="wrap hero-grid">
         <div className="hero-copy">
-          <h1>{hero.title}</h1>
+          <h1 aria-label={hero.title}>
+            {hero.title.split(" ").map((word, i) => (
+              <Fragment key={i}>
+                <span className="w" aria-hidden="true">
+                  <span style={{ "--i": i } as CSSProperties}>{word}</span>
+                </span>{" "}
+              </Fragment>
+            ))}
+          </h1>
           <p className="hero-sub">{hero.sub}</p>
           <div className="actions">
             <Link className="btn btn-on-dark" href="/start">

@@ -5,6 +5,7 @@ import { site } from "@/lib/constants/site";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { Reveal } from "@/components/layout/Reveal";
 
 const sans = Bricolage_Grotesque({ subsets: ["latin"], variable: "--font-sans", display: "swap", axes: ["opsz", "wdth"] });
 
@@ -28,7 +29,8 @@ export const viewport: Viewport = {
 };
 
 // Runs before paint, so the page never flashes the wrong theme.
-const themeInit = `try{var t=localStorage.getItem("cc-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}`;
+const themeInit = `try{var t=localStorage.getItem("cc-theme");if(t)document.documentElement.setAttribute("data-theme",t)}catch(e){}
+if(window.matchMedia&&!matchMedia("(prefers-reduced-motion: reduce)").matches)document.documentElement.classList.add("motion");`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -44,6 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <JsonLd />
+        <Reveal />
       </body>
     </html>
   );

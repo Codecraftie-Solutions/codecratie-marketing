@@ -24,7 +24,7 @@ export function SelectedWork() {
           {rest.map((s) => (
             <li key={s.slug}>
               <Link href={`/work#${s.slug}`} className="case-card">
-                <div className="shot">
+                <div className="shot" data-reveal="wipe">
                   {s.media.kind === "image" && (
                     <Image src={s.media.src} alt={s.media.alt} fill sizes="(max-width: 800px) 100vw, 380px" />
                   )}
@@ -72,7 +72,7 @@ export function Process() {
     <section className="section band" aria-labelledby="process-h">
       <div className="wrap">
         <h2 id="process-h">How a project runs</h2>
-        <ol className="steps">
+        <ol className="steps" data-reveal="steps">
           {process.map((p, i) => (
             <li key={p.title}>
               <span className="step-n" aria-hidden="true">
@@ -123,7 +123,7 @@ export function Founder() {
   return (
     <section className="section" aria-labelledby="founder-h">
       <div className="wrap founder">
-        <div className="founder-badge" aria-hidden="true">
+        <div className="founder-badge" aria-hidden="true" data-reveal="pop">
           IS
         </div>
         <div>

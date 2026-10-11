@@ -40,7 +40,7 @@ export function CaseStudy({ study, heading = "h3", detailed = false }: { study: 
   const facts = detailed ? study.facts : study.facts.slice(0, 2);
   return (
     <article className="case" id={study.slug}>
-      <div className="case-visual">
+      <div className="case-visual" data-reveal="wipe">
         <Visual media={study.media} />
       </div>
       <div className="case-text">
