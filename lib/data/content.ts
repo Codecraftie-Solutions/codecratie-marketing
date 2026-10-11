@@ -70,8 +70,10 @@ export const process = [
 export const founder = {
   name: "Ignatius Sani",
   role: "Founder and lead engineer",
+  photo: "/about/ignatius-sani.jpg",
+  linkedin: "https://www.linkedin.com/in/ignatiussani/",
   text: [
-    "Code-Craftie Solutions is led by Ignatius Sani, a senior full-stack engineer who builds production systems in TypeScript, Node.js, React and PostgreSQL.",
+    "Code-Craftie Solutions is led by Ignatius Sani, a senior full-stack engineer with seven years of experience building production systems in TypeScript, Node.js, React and PostgreSQL.",
     "You work with the person writing your software, not an account manager. When a project needs more hands, we bring in engineers we have trained and worked with, and we stay responsible for the result.",
   ],
 };

@@ -123,8 +123,8 @@ export function Founder() {
   return (
     <section className="section" aria-labelledby="founder-h">
       <div className="wrap founder">
-        <div className="founder-badge" aria-hidden="true" data-reveal="pop">
-          IS
+        <div className="founder-photo" data-reveal="pop">
+          <Image src={founder.photo} alt={`${founder.name}, ${founder.role}`} fill sizes="(max-width: 600px) 120px, 180px" />
         </div>
         <div>
           <h2 id="founder-h">Who you work with</h2>
@@ -136,6 +136,9 @@ export function Founder() {
           <p className="founder-sign">
             {founder.name}, {founder.role}
           </p>
+          <a className="text-link" href={founder.linkedin} rel="noopener">
+            Ignatius on LinkedIn
+          </a>
         </div>
       </div>
     </section>
