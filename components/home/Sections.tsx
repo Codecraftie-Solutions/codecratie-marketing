@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/lib/constants/site";
 import { academy, cta, founder, process, services } from "@/lib/data/content";
@@ -6,6 +7,7 @@ import { products } from "@/lib/data/products";
 import { CaseStudy } from "@/components/work/CaseStudy";
 
 export function SelectedWork() {
+  const [lead, ...rest] = caseStudies;
   return (
     <section className="section" aria-labelledby="work-h">
       <div className="wrap">
@@ -16,10 +18,26 @@ export function SelectedWork() {
           </Link>
         </div>
         <div className="cases">
-          {caseStudies.map((s) => (
-            <CaseStudy key={s.slug} study={s} />
-          ))}
+          {lead && <CaseStudy study={lead} />}
         </div>
+        <ul className="case-cards">
+          {rest.map((s) => (
+            <li key={s.slug}>
+              <Link href={`/work#${s.slug}`} className="case-card">
+                <div className="shot">
+                  {s.media.kind === "image" && (
+                    <Image src={s.media.src} alt={s.media.alt} fill sizes="(max-width: 800px) 100vw, 380px" />
+                  )}
+                </div>
+                <p className="case-meta">
+                  {s.client} <span aria-hidden="true">/</span> {s.kind}
+                </p>
+                <h3>{s.name}</h3>
+                <p className="muted">{s.summary}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

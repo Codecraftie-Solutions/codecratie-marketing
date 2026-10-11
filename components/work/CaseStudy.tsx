@@ -56,7 +56,7 @@ export function CaseStudy({ study, heading = "h3", detailed = false }: { study: 
               <dd>{f.text}</dd>
             </div>
           ))}
-          {detailed && (
+          {detailed && study.stack.length > 0 && (
             <div>
               <dt>Built with</dt>
               <dd>{study.stack.join(", ")}</dd>

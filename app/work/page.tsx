@@ -15,7 +15,7 @@ export default function Page() {
     <>
       <PageHead
         title="Work we have shipped"
-        lede="What each project was for, what we built, the hard part, and how it turned out."
+        lede="Live products and client sites: what each one does and what we built."
       />
       <section className="section section-tight">
         <div className="wrap cases">
