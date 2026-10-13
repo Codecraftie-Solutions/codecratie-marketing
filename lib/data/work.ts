@@ -27,26 +27,26 @@ export const caseStudies: CaseStudy[] = [
     slug: "catalogflow",
     name: "CatalogFlow",
     client: "Own product",
-    kind: "SaaS for online stores",
+    kind: "SaaS for shops and estate agents",
     summary:
-      "Turns the products in a store's catalog into short, voiced videos and posts them to Instagram as Reels. Built for Nigerian merchants who sell on Instagram but have no time to edit video.",
+      "Turns a photo and a price into a short, voiced video and posts it to Instagram and the WhatsApp status, where buyers order or book an inspection. Built for Nigerian shops and estate agents who sell from their phone and have no time to edit video.",
     url: "https://catalogflow.codecraftie.com",
     media: {
       kind: "reels",
       items: [
         { src: "/work/catalogflow/amara-leather-luxury.jpg", alt: "A CatalogFlow video for a leather bag, luxury style" },
         { src: "/work/catalogflow/ori-botanics-collection.jpg", alt: "A CatalogFlow collection video for a skincare brand" },
-        { src: "/work/catalogflow/nka-studio-gallery-poster.jpg", alt: "A CatalogFlow gallery video for an art studio" },
+        { src: "/work/catalogflow/iggy-homes-property-tour.jpg", alt: "A CatalogFlow Property Tour video for a duplex to let" },
       ],
     },
     facts: [
       {
         label: "Problem",
-        text: "Short video sells on Instagram, but a merchant with hundreds of products cannot film and edit a Reel for each one.",
+        text: "Short video sells on Instagram and WhatsApp, but a shop with hundreds of products, or an agent with a new property every week, cannot film and edit a Reel for each one. Most of them have no online store either.",
       },
       {
         label: "What we built",
-        text: "A web app that reads a catalog from Shopify, a feed or a spreadsheet, renders branded videos with voiceover and licensed music, and publishes them to Instagram. Free and Pro plans are billed through Paystack.",
+        text: "A web app where merchants add listings from their phone (or bring in Shopify, a feed or a spreadsheet). It renders branded videos with voiceover and licensed music, including a Property Tour for agents, publishes them to Instagram, shares them to the WhatsApp status, and gives every merchant a shop page that ends in a WhatsApp message. Free and Pro plans are billed through Paystack.",
       },
       {
         label: "The hard part",

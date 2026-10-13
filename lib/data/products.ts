@@ -12,8 +12,8 @@ export const products: Product[] = [
   {
     name: "CatalogFlow",
     status: "Live",
-    what: "Turns a store's product catalog into short voiced videos and posts them to Instagram as Reels.",
-    who: "Online stores that sell on Instagram. Free to start; Pro is ₦15,000 a month.",
+    what: "Turns a photo and a price into a short voiced video, posts it to Instagram and the WhatsApp status, and sends buyers to WhatsApp to order or book an inspection.",
+    who: "Shops and estate agents who sell from their phone, with or without an online store. Free to start; Pro is ₦15,000 a month.",
     url: "https://catalogflow.codecraftie.com",
     linkLabel: "Open CatalogFlow",
   },

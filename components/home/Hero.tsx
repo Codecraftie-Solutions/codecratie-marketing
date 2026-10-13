@@ -44,8 +44,8 @@ export function Hero() {
             />
           </div>
           <figcaption>
-            Made by <Link href="/work#catalogflow">CatalogFlow</Link>, our own product: it turns a store&apos;s catalog
-            into Instagram Reels.
+            Made by <Link href="/work#catalogflow">CatalogFlow</Link>, our own product: it turns a photo and a price
+            into a Reel for Instagram and WhatsApp.
           </figcaption>
         </figure>
       </div>
