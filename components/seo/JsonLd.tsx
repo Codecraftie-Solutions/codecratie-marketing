@@ -9,6 +9,9 @@ export function JsonLd() {
     "@id": `${site.url}/#organization`,
     name: site.name,
     legalName: site.legalName,
+    alternateName: ["CodeCraftie", "CodeCraftie Solutions"],
+    identifier: { "@type": "PropertyValue", propertyID: "CAC business name registration", value: site.registration },
+    subOrganization: { "@id": "https://academy.codecraftie.com/#organization" },
     address: {
       "@type": "PostalAddress",
       streetAddress: site.address.street,
@@ -23,6 +26,7 @@ export function JsonLd() {
     logo: `${site.url}/icon.svg`,
     founder: {
       "@type": "Person",
+      "@id": `${site.url}/about#founder`,
       name: founder.name,
       jobTitle: founder.role,
       image: `${site.url}${founder.photo}`,
@@ -32,6 +36,16 @@ export function JsonLd() {
   };
   const graph = { "@context": "https://schema.org", "@graph": [data, {
     "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url,
+    publisher: { "@id": `${site.url}/#organization` },
+    alternateName: "CodeCraftie",
+  }, {
+    "@type": "EducationalOrganization", "@id": "https://academy.codecraftie.com/#organization",
+    name: "Code-Craftie Academy", url: site.academyUrl,
+    parentOrganization: { "@id": `${site.url}/#organization` },
+  }, {
+    "@type": "SoftwareApplication", "@id": "https://catalogflow.codecraftie.com/#software",
+    name: "CatalogFlow", url: "https://catalogflow.codecraftie.com/",
+    applicationCategory: "BusinessApplication", operatingSystem: "Web",
     publisher: { "@id": `${site.url}/#organization` },
   }] };
   return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph).replace(/</g, "\\u003c") }} />;
