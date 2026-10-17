@@ -14,6 +14,7 @@ export const metadata: Metadata = {
   title: { default: site.name, template: `%s | ${site.name}` },
   description: site.description,
   applicationName: site.name,
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
   robots: { index: true, follow: true },
   openGraph: { siteName: site.name, type: "website", locale: "en_NG", images: ["/og.png"] },
   twitter: { card: "summary_large_image", images: ["/og.png"] },

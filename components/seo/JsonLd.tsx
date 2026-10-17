@@ -6,6 +6,7 @@ export function JsonLd() {
   const data = {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": `${site.url}/#organization`,
     name: site.name,
     legalName: site.legalName,
     address: {
@@ -29,5 +30,9 @@ export function JsonLd() {
     },
     ...(site.social.length ? { sameAs: site.social.map((s) => s.url) } : {}),
   };
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, "\\u003c") }} />;
+  const graph = { "@context": "https://schema.org", "@graph": [data, {
+    "@type": "WebSite", "@id": `${site.url}/#website`, name: site.name, url: site.url,
+    publisher: { "@id": `${site.url}/#organization` },
+  }] };
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(graph).replace(/</g, "\\u003c") }} />;
 }

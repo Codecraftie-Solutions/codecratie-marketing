@@ -4,7 +4,7 @@ export const site = {
   legalName: "Code-Craftie Solutions",
   registration: "BN 8701900",
   address: { street: "No 35 Onilewura Street", locality: "Ikotun", region: "Lagos", country: "Nigeria" },
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://codecraftie.com",
+  url: (process.env.NEXT_PUBLIC_SITE_URL || "https://www.codecraftie.com").replace(/\/+$/, ""),
   tagline: "We build the software your business runs on.",
   description:
     "Code-Craftie Solutions is a software studio in Lagos. We design, build and look after web apps, mobile apps and business systems for businesses, and run products of our own.",

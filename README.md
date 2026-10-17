@@ -14,3 +14,7 @@ npm run typecheck && npm run lint && npm run build
 - **Career Launch / contact email**: set `NEXT_PUBLIC_CAREER_LAUNCH_URL` and `NEXT_PUBLIC_CONTACT_EMAIL`. The UI hides or marks anything that depends on them until then.
 - **Form**: `POST /api/contact` validates, sanitises and calls `sendProjectInquiry()` (`lib/contact/send.ts`). To send real email set `EMAIL_PROVIDER=smtp`, `CONTACT_EMAIL` (where inquiries go) and `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` (`SMTP_SECURE=true` for port 465). Without them it returns 503 and the form says submissions can't be accepted yet. Use `EMAIL_PROVIDER=log` in development to print submissions to the server console.
 - **Motion**: `public/js/motion.js` is the approved prototype's JS, loaded by `components/motion/Motion.tsx`. Internal links are plain `<a>` so each page load initialises it cleanly.
+
+## Search Console
+
+Set `NEXT_PUBLIC_SITE_URL=https://www.codecraftie.com` in the hosting environment before rebuilding. For optional HTML-tag verification, set `GOOGLE_SITE_VERIFICATION` to Google's tag content value. After deployment, confirm `/robots.txt`, `/sitemap.xml`, and page canonicals use the production hostname, then submit the sitemap in the verified Search Console property.
