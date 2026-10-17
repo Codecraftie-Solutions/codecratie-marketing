@@ -7,7 +7,7 @@ export function pageMetadata(o: { title: string; description: string; path: stri
     title: o.absolute ? { absolute: o.title } : o.title,
     description: o.description,
     alternates: { canonical: o.path },
-    openGraph: { title: full, description: o.description, url: o.path, siteName: site.name, type: "website", locale: "en" },
-    twitter: { card: "summary", title: full, description: o.description },
+    openGraph: { title: full, description: o.description, url: o.path, siteName: site.name, type: "website", locale: "en_NG", images: ["/og.png"] },
+    twitter: { card: "summary_large_image", images: ["/og.png"], title: full, description: o.description },
   };
 }
