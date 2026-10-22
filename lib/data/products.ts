@@ -5,6 +5,8 @@ export type Product = {
   who: string;
   url: string;
   linkLabel: string;
+  /** A second, smaller link, e.g. a hosted edition. */
+  more?: { url: string; label: string; note?: string };
 };
 
 /** Products Code-Craftie Solutions builds and runs itself. */
@@ -18,11 +20,20 @@ export const products: Product[] = [
     linkLabel: "Open CatalogFlow",
   },
   {
+    name: "ExperimentLab",
+    status: "Live",
+    what: "A/B tests and feature flags that say in plain words which version won, and check every variant against Google's page-speed budgets before you ship it.",
+    who: "Product teams who test changes to their site or app and want an answer they can act on. Free to start; Team is $29 a month, or self-host the open-source edition.",
+    url: "https://experimentlab.codecraftie.com",
+    linkLabel: "Open ExperimentLab",
+  },
+  {
     name: "Atlas",
     status: "Open source",
     what: "Encrypted off-site backups, restore checks and diagnostics for apps that run in Docker. It backs up our own products.",
     who: "Teams running their own servers who need backups they have actually tested.",
     url: "https://github.com/ignatius22/atlas",
     linkLabel: "View on GitHub",
+    more: { url: "https://cloud.codecraftie.com", label: "Atlas Cloud", note: "Hosted dashboard, private beta" },
   },
 ];

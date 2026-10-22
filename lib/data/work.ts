@@ -60,6 +60,31 @@ export const caseStudies: CaseStudy[] = [
     stack: ["Next.js", "Node.js", "PostgreSQL", "BullMQ and Redis", "Revideo", "OpenAI speech", "Paystack", "Meta Graph API", "Docker"],
   },
   {
+    slug: "experimentlab",
+    name: "ExperimentLab",
+    client: "Own product",
+    kind: "A/B testing and feature flags",
+    summary:
+      "A/B tests and feature flags for product teams. Instead of a table of p-values, each experiment says in plain words whether a variant won, how sure it is and how many more visitors it needs, and checks every variant against Google's page-speed budgets before anyone ships it.",
+    url: "https://experimentlab.codecraftie.com",
+    media: { kind: "image", src: "/work/experimentlab/results.jpg", alt: "An ExperimentLab results page: the verdict in plain words, the likely range of the change, and page speed for each variant" },
+    facts: [
+      {
+        label: "Problem",
+        text: "Most testing tools hand you statistics and leave the decision to you, so teams ship a variant that only looked ahead, or one that made the page slower. Small teams rarely have someone who can read the numbers.",
+      },
+      {
+        label: "What we built",
+        text: "SDKs for React, the browser and Node.js; feature flags with targeting rules and percentage rollouts; experiments with a verdict, a confidence range and a running count of visitors still needed; Core Web Vitals per variant; separate production, staging and development environments; team roles, invitations and an audit log. Free and Team plans are billed through Paystack, and the core is open source for teams who want to host it themselves.",
+      },
+      {
+        label: "The hard part",
+        text: "Counting honestly. Each visitor is counted once, in the variant they saw first, only inside the test's own environment and dates, and the app holds back the ship button when the traffic split looks wrong, because that usually means one variant is losing visitors.",
+      },
+    ],
+    stack: ["Next.js", "TypeScript", "PostgreSQL", "Prisma", "BullMQ and Redis", "Paystack", "Docker"],
+  },
+  {
     slug: "wdni",
     name: "WDNI Mobility",
     client: "Women Drive Nigeria Initiative",

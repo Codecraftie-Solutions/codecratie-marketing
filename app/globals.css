@@ -990,6 +990,12 @@ html.menu-open {
   gap: 28px;
   margin-top: clamp(56px, 8vw, 96px);
 }
+/* Four cards read better as two rows of two than three and an orphan. */
+.case-cards:has(> li:nth-child(4):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  column-gap: 48px;
+  row-gap: 56px;
+}
 .case-card {
   display: block;
   color: var(--ink);
@@ -1015,7 +1021,8 @@ html.menu-open {
   line-height: 1.6;
 }
 @media (max-width: 900px) {
-  .case-cards {
+  .case-cards,
+  .case-cards:has(> li:nth-child(4):last-child) {
     grid-template-columns: 1fr;
     gap: 44px;
   }
@@ -1147,6 +1154,9 @@ html.reveal-ready .case-visual .reel:nth-child(3) {
 .case-cards li:nth-child(3) [data-reveal] {
   transition-delay: 0.24s;
 }
+.case-cards li:nth-child(4) [data-reveal] {
+  transition-delay: 0.36s;
+}
 
 /* Process: a line runs through the four steps and each number lights up as it passes. */
 .steps {
@@ -1218,4 +1228,23 @@ html.reveal-ready [data-reveal="pop"]:not(.in) {
 }
 .founder .text-link {
   margin-top: 10px;
+}
+
+.product-links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 22px;
+  margin-top: 14px;
+}
+.product-links .text-link {
+  margin-top: 0;
+}
+.product-more {
+  font-size: 0.92rem;
+}
+.product-more a {
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }

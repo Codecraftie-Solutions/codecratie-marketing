@@ -5,7 +5,7 @@ import { Cta } from "@/components/home/Sections";
 
 export const metadata = pageMetadata({
   title: "Products",
-  description: "Software Code-Craftie Solutions builds and runs itself: CatalogFlow and Atlas.",
+  description: "Software Code-Craftie Solutions builds and runs itself: CatalogFlow, ExperimentLab and Atlas.",
   path: "/products",
 });
 
@@ -27,9 +27,17 @@ export default function Page() {
                 </div>
                 <p>{p.what}</p>
                 <p className="muted">{p.who}</p>
-                <a className="text-link" href={p.url} rel="noopener">
-                  {p.linkLabel}
-                </a>
+                <div className="product-links">
+                  <a className="text-link" href={p.url} rel="noopener">
+                    {p.linkLabel}
+                  </a>
+                  {p.more && (
+                    <span className="product-more">
+                      <a href={p.more.url} rel="noopener">{p.more.label}</a>
+                      {p.more.note && <span className="muted"> · {p.more.note}</span>}
+                    </span>
+                  )}
+                </div>
               </li>
             ))}
           </ul>

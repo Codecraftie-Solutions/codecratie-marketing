@@ -108,9 +108,17 @@ export function ProductsStrip() {
                 <span className="status">{p.status}</span>
               </div>
               <p>{p.what}</p>
-              <a className="text-link" href={p.url} rel="noopener">
-                {p.linkLabel}
-              </a>
+              <div className="product-links">
+                <a className="text-link" href={p.url} rel="noopener">
+                  {p.linkLabel}
+                </a>
+                {p.more && (
+                  <span className="product-more">
+                    <a href={p.more.url} rel="noopener">{p.more.label}</a>
+                    {p.more.note && <span className="muted"> · {p.more.note}</span>}
+                  </span>
+                )}
+              </div>
             </li>
           ))}
         </ul>
